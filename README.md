@@ -80,11 +80,11 @@ The project follows a mono-repository structure with separate folders for fronte
    ng serve
 
 
-Open browser at:
+### Open browser at:
 
 http://localhost:4200
 
-Author
+### Author
 
 Sarvesh Bamane
 Java Full Stack Developer (Fresher)
