@@ -10,6 +10,31 @@ The application is built using **Angular** for the frontend and **Spring Boot** 
 
 ---
 
+![Project Screenshot](register.png)
+
+---
+![Project Screenshot](dashboard.png)
+
+---
+
+![Project Screenshot](patient.png)
+
+---
+
+![Project Screenshot](doctor.png)
+
+---
+
+![Project Screenshot](apointment.png)
+
+---
+
+![Project Screenshot](login.png)
+
+---
+
+
+
 ## Features
 - Patient management (add, update, view, delete patients)
 - Doctor management with specialization details
