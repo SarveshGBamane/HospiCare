@@ -1,0 +1,112 @@
+<div
+  class="h-[40.3rem] bg-cover bg-center bg-no-repeat"
+  style="background-image: url('assets/appointmentBG.png');">
+
+  <div class="p-4 sm:p-6 h-[40.3rem] bg-white/60">
+
+    <h2
+      class="text-xl sm:text-3xl font-semibold mb-6 text-indigo-500 text-center font-numans">
+      Appointment Management
+    </h2>
+
+    <!-- Add / Update Form -->
+    <div class="bg-white shadow rounded p-4 sm:p-6 mb-8">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Patient -->
+        <select [(ngModel)]="appointment.patient.id"
+                class="border p-2 rounded w-full">
+          <option [ngValue]="null">Select Patient</option>
+          <option *ngFor="let p of patients" [ngValue]="p.id">
+            {{ p.name }}
+          </option>
+        </select>
+
+        <!-- Doctor -->
+        <select [(ngModel)]="appointment.doctor.id"
+                class="border p-2 rounded w-full">
+          <option [ngValue]="null">Select Doctor</option>
+          <option *ngFor="let d of doctors" [ngValue]="d.id">
+            {{ d.name }}
+          </option>
+        </select>
+
+        <!-- Date -->
+        <input type="date"
+               [(ngModel)]="appointment.date"
+               class="border p-2 rounded w-full">
+
+        <!-- Time -->
+        <input type="time"
+               [(ngModel)]="appointment.time"
+               class="border p-2 rounded w-full">
+
+        <!-- Status -->
+        <select [(ngModel)]="appointment.status"
+                class="border p-2 rounded w-full">
+          <option value="SCHEDULED">Scheduled</option>
+          <option value="COMPLETED">Completed</option>
+          <option value="CANCELLED">Cancelled</option>
+        </select>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button
+            (click)="addOrUpdateAppointment()"
+            class="bg-sky-500 text-white px-4 py-2 rounded hover:bg-sky-600 w-full">
+            {{ isEditMode ? 'Update Appointment' : 'Book Appointment' }}
+          </button>
+
+          <button *ngIf="isEditMode"
+                  (click)="resetForm()"
+                  class="bg-gray-400 text-white px-4 py-2 rounded w-full">
+            Cancel
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Appointment Table -->
+    <div class="bg-white shadow rounded p-4 sm:p-6 overflow-x-auto">
+      <table class="min-w-[700px] w-full border text-sm sm:text-base">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border p-2">ID</th>
+            <th class="border p-2">Patient</th>
+            <th class="border p-2">Doctor</th>
+            <th class="border p-2">Date</th>
+            <th class="border p-2">Time</th>
+            <th class="border p-2">Status</th>
+            <th class="border p-2">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let a of appointments" class="text-center">
+            <td class="border p-2">{{ a.id }}</td>
+            <td class="border p-2">{{ a.patient?.name }}</td>
+            <td class="border p-2">{{ a.doctor?.name }}</td>
+            <td class="border p-2">{{ a.date }}</td>
+            <td class="border p-2">{{ a.time }}</td>
+            <td class="border p-2">{{ a.status }}</td>
+            <td class="border p-2 flex flex-col sm:flex-row gap-2 justify-center">
+              <button
+                (click)="editAppointment(a)"
+                class="bg-yellow-400 text-white px-3 py-1 rounded">
+                Edit
+              </button>
+              <button
+                (click)="deleteAppointment(a.id)"
+                class="bg-red-500 text-white px-3 py-1 rounded">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,21 @@
+# Backend
+Backend/target/
+Backend/.mvn/wrapper/maven-wrapper.jar
+
+# Frontend
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.angular/
+
+# Environment files
+*.env
+application.properties
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,51 @@
+<div
+  class="h-[40.3rem] bg-cover bg-center bg-no-repeat"
+  style="background-image: url('assets/dashboardBG.jpg');">
+
+  <div class="p-4 sm:p-6 h-[40.3rem] bg-white/70">
+
+    <h1
+      class="text-  xl sm:text-3xl font-semibold mb-6 text-indigo-500 text-center font-numans">
+      Admin Dashboard
+    </h1>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Doctors -->
+      <div
+        class="bg-white shadow rounded-xl p-6 text-center hover:shadow-lg transition">
+        <h2 class="text-base sm:text-lg font-medium text-gray-600">
+          Total Doctors
+        </h2>
+        <p class="text-3xl sm:text-4xl font-bold text-sky-500 mt-4">
+          {{ totalDoctors }}
+        </p>
+      </div>
+
+      <!-- Patients -->
+      <div
+        class="bg-white shadow rounded-xl p-6 text-center hover:shadow-lg transition">
+        <h2 class="text-base sm:text-lg font-medium text-gray-600">
+          Total Patients
+        </h2>
+        <p class="text-3xl sm:text-4xl font-bold text-green-500 mt-4">
+          {{ totalPatients }}
+        </p>
+      </div>
+
+      <!-- Appointments -->
+      <div
+        class="bg-white shadow rounded-xl p-6 text-center hover:shadow-lg transition">
+        <h2 class="text-base sm:text-lg font-medium text-gray-600">
+          Total Appointments
+        </h2>
+        <p class="text-3xl sm:text-4xl font-bold text-purple-500 mt-4">
+          {{ totalAppointments }}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

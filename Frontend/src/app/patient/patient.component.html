@@ -1,0 +1,132 @@
+<!-- Background Wrapper -->
+<div
+  class="h-[40.3rem] bg-cover bg-center bg-no-repeat"
+  style="background-image: url('assets/patientBG.png');">
+
+  <!-- Overlay -->
+  <div class="h-[40.3rem] bg-white/80 p-4 sm:p-6">
+
+    <h2
+      class="text-xl sm:text-3xl font-semibold mb-6 text-indigo-500 text-center font-numans">
+      Patient Management
+    </h2>
+
+    <!-- Add / Update Patient Form -->
+    <div class="bg-white shadow rounded p-4 sm:p-6 mb-8">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Name -->
+        <input [(ngModel)]="patient.name"
+               placeholder="Name"
+               class="border p-2 rounded w-full" />
+
+        <!-- Age -->
+        <input type="number"
+               [(ngModel)]="patient.age"
+               placeholder="Age"
+               class="border p-2 rounded w-full" />
+
+        <!-- Gender (DROPDOWN) -->
+        <select [(ngModel)]="patient.gender"
+                class="border p-2 rounded w-full">
+          <option value="" disabled selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <!-- Phone -->
+        <input [(ngModel)]="patient.phone"
+               placeholder="Phone"
+               class="border p-2 rounded w-full" />
+
+        <!-- Address -->
+        <input [(ngModel)]="patient.address"
+               placeholder="Address"
+               class="border p-2 rounded w-full" />
+
+        <!-- Disease -->
+        <input [(ngModel)]="patient.disease"
+               placeholder="Disease"
+               class="border p-2 rounded w-full" />
+
+        <!-- Doctor Dropdown -->
+        <select [(ngModel)]="patient.doctor.id"
+                class="border p-2 rounded w-full">
+          <option [ngValue]="null">Select Doctor</option>
+          <option *ngFor="let d of doctors" [ngValue]="d.id">
+            {{ d.name }} ({{ d.specialization }})
+          </option>
+        </select>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-2">
+          <button
+            (click)="addOrUpdatePatient()"
+            class="bg-sky-500 text-white rounded px-4 py-2 hover:bg-sky-600 w-full">
+            {{ isEditMode ? 'Update Patient' : 'Add Patient' }}
+          </button>
+
+          <button *ngIf="isEditMode"
+                  (click)="resetForm()"
+                  class="bg-gray-400 text-white rounded px-4 py-2 hover:bg-gray-500 w-full">
+            Cancel
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Patient Table -->
+    <div class="bg-white shadow rounded p-4 sm:p-6 overflow-x-auto">
+      <table class="min-w-[900px] w-full border text-sm sm:text-base">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border p-2">ID</th>
+            <th class="border p-2">Name</th>
+            <th class="border p-2">Age</th>
+            <th class="border p-2">Doctor</th>
+            <th class="border p-2">Address</th>
+            <th class="border p-2">Disease</th>
+            <th class="border p-2">Gender</th>
+            <th class="border p-2">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let p of patients" class="text-center">
+            <td class="border p-2">{{ p.id }}</td>
+            <td class="border p-2">{{ p.name }}</td>
+            <td class="border p-2">{{ p.age }}</td>
+            <td class="border p-2">{{ p.doctor?.name }}</td>
+            <td class="border p-2">{{ p.address }}</td>
+            <td class="border p-2">{{ p.disease }}</td>
+            <td class="border p-2">{{ p.gender }}</td>
+
+            <td class="border p-2 flex flex-col sm:flex-row gap-2 justify-center">
+              <button
+                (click)="editPatient(p)"
+                class="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500">
+                Edit
+              </button>
+
+              <button
+                (click)="deletePatient(p.id)"
+                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                Delete
+              </button>
+            </td>
+          </tr>
+
+          <tr *ngIf="patients.length === 0">
+            <td colspan="8" class="text-center text-gray-500 py-4">
+              No patients found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

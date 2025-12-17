@@ -1,0 +1,121 @@
+<div
+  class="h-[40.3rem] bg-cover bg-center bg-no-repeat"
+  style="background-image: url('assets/doctorBG.png');">
+
+  <!-- Overlay -->
+  <div class="h-[40.3rem] bg-white/60 p-4 sm:p-6">
+
+    <h2
+      class="text-xl sm:text-3xl font-semibold mb-6 text-indigo-500 text-center font-numans">
+      Doctor Management
+    </h2>
+
+    <!-- Add / Update Doctor Form -->
+    <div class="bg-white shadow rounded p-4 sm:p-6 mb-8">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-center">
+
+        <!-- Name -->
+        <input type="text"
+               placeholder="Doctor Name"
+               [(ngModel)]="doctor.name"
+               class="border p-2 rounded w-full">
+
+        <!-- Specialization -->
+        <input type="text"
+               placeholder="Specialization"
+               [(ngModel)]="doctor.specialization"
+               class="border p-2 rounded w-full">
+
+        <!-- Phone -->
+        <input type="text"
+               placeholder="Phone"
+               [(ngModel)]="doctor.phone"
+               class="border p-2 rounded w-full">
+
+        <!-- Availability -->
+        <div class="flex items-center gap-2 justify-start">
+          <input type="checkbox"
+                 [(ngModel)]="doctor.availability"
+                 class="w-4 h-4">
+          <label class="text-sm">Available</label>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-2">
+          <button
+            (click)="addOrUpdateDoctor()"
+            class="bg-sky-500 text-white rounded px-4 py-2 hover:bg-sky-600 w-full">
+            {{ isEditMode ? 'Update Doctor' : 'Add Doctor' }}
+          </button>
+
+          <button *ngIf="isEditMode"
+                  (click)="resetForm()"
+                  class="bg-gray-400 text-white rounded px-4 py-2 hover:bg-gray-500 w-full">
+            Cancel
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Doctor Table -->
+    <div class="bg-white shadow rounded p-4 sm:p-6 overflow-x-auto">
+
+      <table class="min-w-[700px] w-full border text-sm sm:text-base">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border p-2">ID</th>
+            <th class="border p-2">Name</th>
+            <th class="border p-2">Specialization</th>
+            <th class="border p-2">Phone</th>
+            <th class="border p-2">Availability</th>
+            <th class="border p-2">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let d of doctors" class="text-center">
+            <td class="border p-2">{{ d.id }}</td>
+            <td class="border p-2">{{ d.name }}</td>
+            <td class="border p-2">{{ d.specialization }}</td>
+            <td class="border p-2">{{ d.phone }}</td>
+
+            <td class="border p-2">
+              <span
+                class="font-semibold"
+                [ngClass]="{
+                  'text-green-600': d.availability,
+                  'text-red-500': !d.availability
+                }">
+                {{ d.availability ? 'Available' : 'Not Available' }}
+              </span>
+            </td>
+
+            <td class="border p-2 flex flex-col sm:flex-row gap-2 justify-center">
+              <button
+                (click)="editDoctor(d)"
+                class="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500">
+                Edit
+              </button>
+
+              <button
+                (click)="deleteDoctor(d.id)"
+                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                Delete
+              </button>
+            </td>
+          </tr>
+
+          <tr *ngIf="doctors.length === 0">
+            <td colspan="6" class="text-center text-gray-500 py-4">
+              No doctors found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>
