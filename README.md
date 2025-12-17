@@ -22,7 +22,7 @@ The application is built using **Angular** for the frontend and **Spring Boot** 
 
 ---
 
-![Project Screenshot](apointment.png)
+![Project Screenshot](appointment.png)
 
 ---
 
