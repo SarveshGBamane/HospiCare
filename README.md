@@ -1,62 +1,82 @@
-🏥 HospiCare – Hospital Management System
+# HospiCare – Hospital Management System
 
-HospiCare is a full-stack Hospital Management System built to manage patients, doctors, appointments, and users using a clean and scalable architecture. The project demonstrates practical implementation of Java Full Stack development with RESTful services and a modern frontend.
+HospiCare is a full-stack Hospital Management System designed to manage patients, doctors, and appointments efficiently.  
+The application is built using **Angular** for the frontend and **Spring Boot** for the backend, following a layered architecture and RESTful design principles.
 
-🚀 Tech Stack
+---
 
-Backend: Java, Spring Boot, Spring Data JPA, Hibernate, MySQL, Maven
-Frontend: Angular, TypeScript, HTML, CSS, Tailwind CSS
-Tools: Git, GitHub, Eclipse, VS Code, Postman, MySQL Workbench
+## Screenshot
+![Project Screenshot](Frontend/src/assets/homeImage.png)
 
-✨ Key Features
+---
 
-User authentication with protected routes
+## Features
+- Patient management (add, update, view, delete patients)
+- Doctor management with specialization details
+- Appointment scheduling between doctors and patients
+- Role-based navigation (Admin / User)
+- Secure REST APIs with structured backend architecture
+- Responsive and user-friendly UI
 
-Doctor and patient management (CRUD operations)
+---
 
-Appointment scheduling and management
+## Technologies Used
 
-RESTful API integration between frontend and backend
+### Frontend
+- Angular
+- TypeScript
+- HTML, CSS
+- Tailwind CSS
 
-Clean layered architecture (Controller → Service → Repository)
+### Backend
+- Java
+- Spring Boot
+- Spring Data JPA
+- REST APIs
 
-📁 Project Structure
-HospiCare
- ├── Backend   (Spring Boot)
- ├── Frontend  (Angular)
- └── .gitignore
+### Database
+- MySQL
 
-🏗️ Architecture
+### Tools
+- Git & GitHub
+- Eclipse IDE
+- Visual Studio Code
+- MySQL Workbench
 
-The backend follows a layered architecture:
+---
 
-Controller – Handles HTTP requests
-
-Service – Business logic
-
-Repository – Database operations using JPA
-
-This improves maintainability, scalability, and testability.
-
-▶️ Run the Project
-Backend
-mvn spring-boot:run
+## Project Structure
+HospiCare/
+├── Backend/ # Spring Boot backend
+├── Frontend/ # Angular frontend
+├── .gitignore
+└── README.md
 
 
-Runs on http://localhost:8080
+---
 
-Frontend
-npm install
+## How to Run the Project
+
+### Backend (Spring Boot)
+1. Open `Backend` folder in Eclipse
+2. Configure MySQL database in `application.properties`
+3. Run the Spring Boot application
+
+### Frontend (Angular)
+1. Open `Frontend` folder in VS Code
+2. Install dependencies:
+   ```bash
+   npm install
+Start the Angular app:
+
 ng serve
 
 
-Runs on http://localhost:4200
+Open browser at:
 
-🎯 Purpose
+http://localhost:4200
 
-This project was developed to gain hands-on experience in Java Full Stack development and to understand real-world application architecture and GitHub workflow.
-
-👤 Author
+Author
 
 Sarvesh Bamane
 Java Full Stack Developer (Fresher)
