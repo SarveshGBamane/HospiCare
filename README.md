@@ -10,9 +10,6 @@ The application is built using **Angular** for the frontend and **Spring Boot** 
 
 ---
 
-![Project Screenshot](register.png)
-
----
 ![Project Screenshot](dashboard.png)
 
 ---
@@ -33,6 +30,10 @@ The application is built using **Angular** for the frontend and **Spring Boot** 
 
 ---
 
+
+![Project Screenshot](register.png)
+
+---
 
 
 ## Features
