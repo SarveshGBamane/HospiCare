@@ -30,7 +30,6 @@ The application is built using **Angular** for the frontend and **Spring Boot** 
 
 ---
 
-
 ![Project Screenshot](register.png)
 
 ---
