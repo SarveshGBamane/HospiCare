@@ -6,7 +6,7 @@ The application is built using **Angular** for the frontend and **Spring Boot** 
 ---
 
 ## Screenshot
-![Project Screenshot](Frontend/src/assets/homeImage.png)
+![Project Screenshot](home.png)
 
 ---
 
